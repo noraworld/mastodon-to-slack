@@ -23,7 +23,7 @@ $ cp .env.sample .env
 |:---:|:---:|
 | Application name | Anything is OK |
 | Application website | Anything is OK |
-| Redirect URI | `urn:ietf:wg:oauth:2.0:oob` |
+| Redirect URI | `urn:ietf:wg:oauth:2.0:oob` (default) |
 | Scopes | Only read |
 
 3. Click the `SUBMIT` button
@@ -40,7 +40,7 @@ $ cp .env.sample .env
 7. Paste it to `SLACK_WEBHOOK_URI` in `.env`
 8. [OPTIONAL] Change integration settings
 
-## Install RubyGems
+### Install RubyGems
 ```
 $ bundle install
 ```
