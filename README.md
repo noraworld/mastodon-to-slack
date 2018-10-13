@@ -56,11 +56,11 @@ Note that you must run this command in a project root directory:
 
 ```
 # Bad
-$ ruby src/mastodon_to_slack.rb
-
-# Good
 $ cd src
 $ ruby mastodon_to_slack.rb
+
+# Good
+$ ruby src/mastodon_to_slack.rb
 ```
 
 Toot something, and this tool will post a Mastodon status URL to a Slack channel!
