@@ -40,6 +40,11 @@ $ cp .env.sample .env
 7. Paste it to `SLACK_WEBHOOK_URI` in `.env`
 8. [OPTIONAL] Change integration settings
 
+## Install RubyGems
+```
+$ bundle install
+```
+
 ## Usage
 The usage is very simple. All you need to do is run the following command:
 
