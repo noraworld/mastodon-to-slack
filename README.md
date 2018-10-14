@@ -87,3 +87,6 @@ $ ruby src/mastodon_to_slack.rb
 Toot something, and this tool will post a Mastodon status URL to a Slack channel!
 
 To stop this tool just send SIGINT signal (press `Ctrl-C`).
+
+## License
+All codes of this repository are available under the MIT license. See the [LICENSE](./LICENSE) for more information.
