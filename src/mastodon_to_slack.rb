@@ -49,17 +49,17 @@ def start_connection(request, http)
   end
 
   ws.on :close do |_|
-    puts 'Connection closed'.pink
+    puts 'Connection closed'.pink if ARGV[0] == '--verbose'
 
     # reopen the connection when closing it
     # https://stackoverflow.com/questions/22941084/faye-websocket-reconnect-to-socket-after-close-handler-gets-triggered
     start_connection(request, http)
 
-    puts 'Trying to reconnect...'.yellow
+    puts 'Trying to reconnect...'.yellow if ARGV[0] == '--verbose'
   end
 
   ws.on :error do |_|
-    puts 'Error occured'.red
+    puts 'Error occured'.red if ARGV[0] == '--verbose'
   end
 end
 
