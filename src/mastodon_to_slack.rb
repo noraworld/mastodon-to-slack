@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'net/https'
+require './lib/colorize.rb'
 
 Bundler.require
 Dotenv.load
@@ -23,7 +24,7 @@ def start_connection(request, http)
   ws = Faye::WebSocket::Client.new(MASTODON_ENDPOINT, nil, ping: 60)
 
   ws.on :open do |_|
-    puts 'Connection starts'
+    puts 'Connection starts'.green
   end
 
   ws.on :message do |message|
@@ -48,15 +49,17 @@ def start_connection(request, http)
   end
 
   ws.on :close do |_|
-    puts 'Connection closed'
+    puts 'Connection closed'.pink
 
     # reopen the connection when closing it
     # https://stackoverflow.com/questions/22941084/faye-websocket-reconnect-to-socket-after-close-handler-gets-triggered
     start_connection(request, http)
+
+    puts 'Trying to reconnect...'.yellow
   end
 
   ws.on :error do |_|
-    puts 'Error occured'
+    puts 'Error occured'.red
   end
 end
 
