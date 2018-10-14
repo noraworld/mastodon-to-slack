@@ -1,4 +1,6 @@
 # Mastodon-to-Slack
+![Mastodon-to-Slack](./img/screenshots/mastodon_to_slack.png)
+
 Mastodon-to-Slack is a simple Slack integrations tool to post a toot to a Slack channel by using [Incoming Webhooks](https://api.slack.com/incoming-webhooks).
 
 ## Setup
