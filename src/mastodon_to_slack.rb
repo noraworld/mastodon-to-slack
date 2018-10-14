@@ -18,19 +18,12 @@ request      = Net::HTTP::Post.new(SLACK_WEBHOOK_URI.request_uri)
 http         = Net::HTTP.new(SLACK_WEBHOOK_URI.host, SLACK_WEBHOOK_URI.port)
 http.use_ssl = true
 
-EM.run do
-  ws = Faye::WebSocket::Client.new(MASTODON_ENDPOINT)
+def start_connection(request, http)
+  # https://github.com/faye/faye-websocket-ruby#initialization-options
+  ws = Faye::WebSocket::Client.new(MASTODON_ENDPOINT, nil, ping: 60)
 
   ws.on :open do |_|
     puts 'Connection starts'
-  end
-
-  ws.on :error do |_|
-    puts 'Error occured'
-  end
-
-  ws.on :close do |_|
-    puts 'Connection closed'
   end
 
   ws.on :message do |message|
@@ -53,4 +46,21 @@ EM.run do
       end
     end
   end
+
+  ws.on :close do |_|
+    puts 'Connection closed'
+
+    # reopen the connection when closing it
+    # https://stackoverflow.com/questions/22941084/faye-websocket-reconnect-to-socket-after-close-handler-gets-triggered
+    start_connection(request, http)
+  end
+
+  ws.on :error do |_|
+    puts 'Error occured'
+    exit 1
+  end
+end
+
+EM.run do
+  start_connection(request, http)
 end
