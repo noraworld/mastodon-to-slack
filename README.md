@@ -86,7 +86,15 @@ $ ruby src/mastodon_to_slack.rb
 
 Toot something, and this tool will post a Mastodon status URL to a Slack channel!
 
+### How to Stop
 To stop this tool just send SIGINT signal (press `Ctrl-C`).
+
+### Verbose Mode
+When a connection closes or an error occurs, it outputs nothing because a log file is filled with tons of connection close and error messages!! If you want to output all of the statuses just append `--verbose` to the command.
+
+```
+$ ruby src/mastodon_to_slack.rb --verbose
+```
 
 ## License
 All codes of this repository are available under the MIT license. See the [LICENSE](./LICENSE) for more information.
