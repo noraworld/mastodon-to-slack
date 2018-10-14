@@ -12,8 +12,8 @@ $ cp .env.sample .env
 ```
 
 2. Fill in `MASTODON_INSTANCE_HOST` and `MASTODON_USERNAME`
-  - `MASTODON_INSTANCE_HOST` is a Mastodon instance hostname with which you want to integrate Slack. **A URL scheme and a trailing slash must not exist**.
-  - `MASTODON_USERNAME` is your username, not a display name. **`@` and a Mastodon instance hostname must not exist**.
+    - `MASTODON_INSTANCE_HOST` is a Mastodon instance hostname with which you want to integrate Slack. **A URL scheme and a trailing slash must not exist**.
+    - `MASTODON_USERNAME` is your username, not a display name. **`@` and a Mastodon instance hostname must not exist**.
 
 ```
 # Bad
