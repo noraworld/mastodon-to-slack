@@ -57,7 +57,6 @@ def start_connection(request, http)
 
   ws.on :error do |_|
     puts 'Error occured'
-    exit 1
   end
 end
 
